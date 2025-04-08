@@ -53,19 +53,19 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
             onClick={() => setIsMenuOpen(false)}
           >
             <img 
               src="/logo.png" 
               alt="Zero Trust Bastion Logo" 
-              className="h-10 w-auto"
+              className="h-10 w-auto filter brightness-125"
             />
-            <div className="ml-1">
-              <span className="text-xl md:text-2xl font-bold text-cyber-teal tracking-wider">
+            <div className="ml-1 flex items-baseline">
+              <span className="text-xl md:text-2xl font-bold text-cyber-teal tracking-wider mr-1">
                 ZERO TRUST
               </span>
-              <span className="text-xl md:text-2xl font-bold text-white ml-1">
+              <span className="text-xl md:text-2xl font-bold text-white">
                 BASTION
               </span>
             </div>

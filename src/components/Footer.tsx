@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -25,7 +24,7 @@ const Footer = () => {
               <img 
                 src="/logo.png" 
                 alt="Zero Trust Bastion Logo" 
-                className="h-12 w-auto"
+                className="h-12 w-auto filter brightness-125"
               />
               <div className="ml-1">
                 <span className="text-xl font-bold text-cyber-teal tracking-wide">
