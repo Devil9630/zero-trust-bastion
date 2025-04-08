@@ -125,13 +125,13 @@ const Index = () => {
                     System Status
                   </div>
                   <p className="text-green-400">
-                    > Threat monitoring active<span className="animate-pulse">_</span>
+                    {"> "}Threat monitoring active<span className="animate-pulse">_</span>
                   </p>
                   <p className="text-cyber-blue">
-                    > Protection level: Maximum
+                    {"> "}Protection level: Maximum
                   </p>
                   <p className="text-cyber-purple">
-                    > Cybershield: Engaged
+                    {"> "}Cybershield: Engaged
                   </p>
                 </div>
               </div>
@@ -259,9 +259,9 @@ const Index = () => {
               </p>
               <div className="terminal-box">
                 <div className="terminal-heading text-cyber-teal">Mission Status</div>
-                <p className="text-cyber-teal">> Training the next generation of security experts</p>
-                <p className="text-cyber-teal">> Protecting critical infrastructure</p>
-                <p className="text-cyber-teal">> Advancing cybersecurity practices<span className="animate-pulse">_</span></p>
+                <p className="text-cyber-teal">{"> "}Training the next generation of security experts</p>
+                <p className="text-cyber-teal">{"> "}Protecting critical infrastructure</p>
+                <p className="text-cyber-teal">{"> "}Advancing cybersecurity practices<span className="animate-pulse">_</span></p>
               </div>
             </div>
           </div>
