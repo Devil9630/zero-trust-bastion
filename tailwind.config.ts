@@ -63,7 +63,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Cybersecurity theme colors
+				// Cybersecurity theme colors - updated teal to match logo
 				cyber: {
 					'dark': '#0f1523',
 					'darker': '#080d16',
@@ -71,8 +71,8 @@ export default {
 					'blue-glow': '#00a8ff',
 					'purple': '#9b30ff',
 					'purple-glow': '#a64dff',
-					'teal': '#00ffd5',
-					'teal-glow': '#80ffe5'
+					'teal': '#00B8B4',  // Updated to match the logo color
+					'teal-glow': '#00D6D1'
 				}
 			},
 			borderRadius: {
@@ -131,9 +131,9 @@ export default {
 				'scanner': 'scanner 1.5s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'circuit-pattern': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='rgba(0, 168, 255, 0.15)' stroke-width='1' d='M10,10 L90,10 M10,25 L90,25 M10,40 L90,40 M10,55 L90,55 M10,70 L90,70 M10,85 L90,85 M25,10 L25,90 M40,10 L40,90 M55,10 L55,90 M70,10 L70,90 M85,10 L85,90'/%3E%3C/svg%3E\")",
-				'cyber-gradient': 'linear-gradient(135deg, rgba(0, 168, 255, 0.1) 0%, rgba(155, 48, 255, 0.1) 100%)',
-				'glowing-border': 'linear-gradient(90deg, rgba(0, 168, 255, 0) 0%, rgba(0, 168, 255, 0.8) 50%, rgba(0, 168, 255, 0) 100%)'
+				'circuit-pattern': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='rgba(0, 184, 180, 0.15)' stroke-width='1' d='M10,10 L90,10 M10,25 L90,25 M10,40 L90,40 M10,55 L90,55 M10,70 L90,70 M10,85 L90,85 M25,10 L25,90 M40,10 L40,90 M55,10 L55,90 M70,10 L70,90 M85,10 L85,90'/%3E%3C/svg%3E\")",
+				'cyber-gradient': 'linear-gradient(135deg, rgba(0, 184, 180, 0.1) 0%, rgba(0, 168, 255, 0.1) 100%)',
+				'glowing-border': 'linear-gradient(90deg, rgba(0, 184, 180, 0) 0%, rgba(0, 184, 180, 0.8) 50%, rgba(0, 184, 180, 0) 100%)'
 			}
 		}
 	},

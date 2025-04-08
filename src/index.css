@@ -23,7 +23,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 164 100% 50%;
+    --accent: 177 100% 35%;
     --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84.2% 60.2%;
@@ -67,89 +67,89 @@
 @layer components {
   .neon-text {
     @apply text-cyber-blue relative;
-    text-shadow: 0 0 2px theme('colors.cyber.blue-glow');
+    text-shadow: 0 0 1px theme('colors.cyber.blue-glow');
   }
 
   .neon-text-purple {
     @apply text-cyber-purple relative;
-    text-shadow: 0 0 2px theme('colors.cyber.purple-glow');
+    text-shadow: 0 0 1px theme('colors.cyber.purple-glow');
   }
 
   .neon-text-teal {
     @apply text-cyber-teal relative;
-    text-shadow: 0 0 2px theme('colors.cyber.teal-glow');
+    text-shadow: 0 0 1px theme('colors.cyber.teal-glow');
   }
 
   .neon-border {
     @apply border border-cyber-blue relative;
-    box-shadow: 0 0 3px theme('colors.cyber.blue-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.blue-glow');
   }
 
   .neon-border-purple {
     @apply border border-cyber-purple relative;
-    box-shadow: 0 0 3px theme('colors.cyber.purple-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.purple-glow');
   }
 
   .neon-border-teal {
     @apply border border-cyber-teal relative;
-    box-shadow: 0 0 3px theme('colors.cyber.teal-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.teal-glow');
   }
 
   .cyber-card {
-    @apply bg-cyber-dark/80 border-cyber-blue/20 border-2 rounded-md overflow-hidden relative p-6;
+    @apply bg-cyber-dark/80 border-cyber-teal/20 border-2 rounded-md overflow-hidden relative p-6;
     background-image: 
-      linear-gradient(135deg, rgba(0, 168, 255, 0.1) 0%, rgba(155, 48, 255, 0.1) 100%),
-      linear-gradient(rgba(15, 21, 35, 0.8), rgba(15, 21, 35, 0.8)),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='rgba(0, 168, 255, 0.15)' stroke-width='1' d='M10,10 L90,10 M10,25 L90,25 M10,40 L90,40 M10,55 L90,55 M10,70 L90,70 M10,85 L90,85 M25,10 L25,90 M40,10 L40,90 M55,10 L55,90 M70,10 L70,90 M85,10 L85,90'/%3E%3C/svg%3E");
+      linear-gradient(135deg, rgba(0, 184, 180, 0.05) 0%, rgba(0, 168, 255, 0.05) 100%),
+      linear-gradient(rgba(15, 21, 35, 0.9), rgba(15, 21, 35, 0.9)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='rgba(0, 184, 180, 0.1)' stroke-width='1' d='M10,10 L90,10 M10,25 L90,25 M10,40 L90,40 M10,55 L90,55 M10,70 L90,70 M10,85 L90,85 M25,10 L25,90 M40,10 L40,90 M55,10 L55,90 M70,10 L70,90 M85,10 L85,90'/%3E%3C/svg%3E");
   }
 
   .cyber-card::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-[2px] bg-glowing-border;
+    @apply absolute bottom-0 left-0 w-full h-[1px] bg-glowing-border;
     animation: scanner 3s ease-in-out infinite alternate;
   }
 
   .cyber-button {
-    @apply bg-cyber-dark/50 text-cyber-blue font-medium relative py-2 px-6 rounded-sm border border-cyber-blue/50 transition-all duration-300 overflow-hidden;
-    box-shadow: 0 0 2px theme('colors.cyber.blue-glow');
+    @apply bg-cyber-dark/50 text-cyber-blue font-medium relative py-2 px-6 rounded border border-cyber-blue/50 transition-all duration-300 overflow-hidden;
+    box-shadow: 0 0 1px theme('colors.cyber.blue-glow');
   }
 
   .cyber-button:hover {
     @apply bg-cyber-blue/10 border-cyber-blue;
-    box-shadow: 0 0 4px theme('colors.cyber.blue-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.blue-glow');
   }
 
   .cyber-button-purple {
-    @apply bg-cyber-dark/50 text-cyber-purple font-medium relative py-2 px-6 rounded-sm border border-cyber-purple/50 transition-all duration-300 overflow-hidden;
-    box-shadow: 0 0 2px theme('colors.cyber.purple-glow');
+    @apply bg-cyber-dark/50 text-cyber-purple font-medium relative py-2 px-6 rounded border border-cyber-purple/50 transition-all duration-300 overflow-hidden;
+    box-shadow: 0 0 1px theme('colors.cyber.purple-glow');
   }
 
   .cyber-button-purple:hover {
     @apply bg-cyber-purple/10 border-cyber-purple;
-    box-shadow: 0 0 4px theme('colors.cyber.purple-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.purple-glow');
   }
 
   .cyber-button-teal {
-    @apply bg-cyber-dark/50 text-cyber-teal font-medium relative py-2 px-6 rounded-sm border border-cyber-teal/50 transition-all duration-300 overflow-hidden;
-    box-shadow: 0 0 2px theme('colors.cyber.teal-glow');
+    @apply bg-cyber-dark/50 text-cyber-teal font-medium relative py-2 px-6 rounded border border-cyber-teal/50 transition-all duration-300 overflow-hidden;
+    box-shadow: 0 0 1px theme('colors.cyber.teal-glow');
   }
 
   .cyber-button-teal:hover {
     @apply bg-cyber-teal/10 border-cyber-teal;
-    box-shadow: 0 0 4px theme('colors.cyber.teal-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.teal-glow');
   }
 
   .terminal-box {
-    @apply bg-black/70 border border-cyber-blue/30 rounded-md p-4 font-mono text-sm;
+    @apply bg-black/70 border border-cyber-teal/30 rounded-md p-4 font-mono text-sm;
   }
 
   .terminal-heading {
-    @apply flex items-center gap-2 text-sm uppercase tracking-wider mb-2 text-cyber-blue;
+    @apply flex items-center gap-2 text-sm uppercase tracking-wider mb-2 text-cyber-teal;
   }
 
   .terminal-heading::before {
     content: '>';
-    @apply text-cyber-blue;
+    @apply text-cyber-teal;
   }
 
   .glitch-wrapper {
@@ -169,14 +169,14 @@
   }
 
   .glitch-text::before {
-    @apply text-cyber-blue;
+    @apply text-cyber-teal;
     animation: text-glitch 4s infinite linear alternate-reverse;
     left: 2px;
     top: 0;
   }
 
   .glitch-text::after {
-    @apply text-cyber-purple;
+    @apply text-cyber-blue;
     animation: text-glitch 2s infinite linear alternate-reverse;
     left: -2px;
     top: 0;

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,8 +44,8 @@ const Navbar = () => {
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-cyber-dark/90 backdrop-blur-lg py-3 shadow-lg' 
-          : 'bg-transparent py-5'
+          ? 'bg-cyber-dark/95 backdrop-blur-lg py-3 shadow-lg' 
+          : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -56,13 +56,16 @@ const Navbar = () => {
             className="flex items-center gap-2"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Shield className="h-8 w-8 text-cyber-blue" />
-            <div>
-              <span className="text-2xl font-bold text-cyber-blue tracking-wider">
-                ZERO
+            <img 
+              src="/logo.png" 
+              alt="Zero Trust Bastion Logo" 
+              className="h-10 w-auto"
+            />
+            <div className="ml-1">
+              <span className="text-xl md:text-2xl font-bold text-cyber-teal tracking-wider">
+                ZERO TRUST
               </span>
-              <span className="text-2xl font-bold text-white">TRUST</span>
-              <span className="text-2xl font-bold text-cyber-blue tracking-wider">
+              <span className="text-xl md:text-2xl font-bold text-white ml-1">
                 BASTION
               </span>
             </div>
@@ -76,8 +79,8 @@ const Navbar = () => {
                 to={item.path}
                 className={`text-sm uppercase tracking-wider transition-all duration-300 ${
                   isActive(item.path)
-                    ? 'text-cyber-blue font-medium'
-                    : 'text-gray-300 hover:text-cyber-blue'
+                    ? 'text-cyber-teal font-medium'
+                    : 'text-gray-300 hover:text-cyber-teal'
                 }`}
               >
                 {item.name}
@@ -85,7 +88,7 @@ const Navbar = () => {
             ))}
             <Link 
               to="/contact" 
-              className="cyber-button"
+              className="cyber-button-teal"
             >
               Consultation
             </Link>
@@ -98,9 +101,9 @@ const Navbar = () => {
               className="text-white focus:outline-none"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6 text-cyber-blue" />
+                <X className="h-6 w-6 text-cyber-teal" />
               ) : (
-                <Menu className="h-6 w-6 text-cyber-blue" />
+                <Menu className="h-6 w-6 text-cyber-teal" />
               )}
             </button>
           </div>
@@ -115,7 +118,7 @@ const Navbar = () => {
             : 'translate-x-full opacity-0'
         } bg-cyber-darker z-40 pt-24`}
         style={{ 
-          backgroundImage: 'linear-gradient(135deg, rgba(0, 168, 255, 0.05) 0%, rgba(155, 48, 255, 0.05) 100%), url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Cpath fill=\'none\' stroke=\'rgba(0, 168, 255, 0.15)\' stroke-width=\'1\' d=\'M10,10 L90,10 M10,25 L90,25 M10,40 L90,40 M10,55 L90,55 M10,70 L90,70 M10,85 L90,85 M25,10 L25,90 M40,10 L40,90 M55,10 L55,90 M70,10 L70,90 M85,10 L85,90\'/%3E%3C/svg%3E")' 
+          backgroundImage: 'linear-gradient(135deg, rgba(0, 255, 213, 0.05) 0%, rgba(0, 168, 255, 0.05) 100%), url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Cpath fill=\'none\' stroke=\'rgba(0, 255, 213, 0.15)\' stroke-width=\'1\' d=\'M10,10 L90,10 M10,25 L90,25 M10,40 L90,40 M10,55 L90,55 M10,70 L90,70 M10,85 L90,85 M25,10 L25,90 M40,10 L40,90 M55,10 L55,90 M70,10 L70,90 M85,10 L85,90\'/%3E%3C/svg%3E")' 
         }}
       >
         <div className="flex flex-col space-y-6 px-6 py-4">
@@ -125,7 +128,7 @@ const Navbar = () => {
               to={item.path}
               className={`text-base py-2 border-b border-cyber-dark ${
                 isActive(item.path)
-                  ? 'text-cyber-blue font-medium'
+                  ? 'text-cyber-teal font-medium'
                   : 'text-gray-300'
               }`}
               onClick={toggleMenu}
@@ -135,7 +138,7 @@ const Navbar = () => {
           ))}
           <Link 
             to="/contact" 
-            className="cyber-button text-center"
+            className="cyber-button-teal text-center"
             onClick={toggleMenu}
           >
             Get Free Consultation

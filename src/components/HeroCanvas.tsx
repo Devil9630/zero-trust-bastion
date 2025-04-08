@@ -19,23 +19,26 @@ const HeroCanvas = () => {
     
     // Create a grid of particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 1000;
+    const particleCount = 800; // Reduced particle count for a cleaner look
     
     const posArray = new Float32Array(particleCount * 3);
     
-    // Fill positions array with random values
-    for (let i = 0; i < particleCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 30;
+    // Fill positions array with random values in a more structured pattern
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      // More structured distribution for professional look
+      posArray[i] = (Math.random() - 0.5) * 25;      // x
+      posArray[i + 1] = (Math.random() - 0.5) * 15;  // y
+      posArray[i + 2] = (Math.random() - 0.5) * 10;  // z
     }
     
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     
-    // Create materials
+    // Create materials with more subtle coloring
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.05,
+      size: 0.035,
       color: 0x00a8ff,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.6,
       blending: THREE.AdditiveBlending
     });
     
@@ -43,24 +46,31 @@ const HeroCanvas = () => {
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particlesMesh);
     
-    // Add spheres
-    const sphere1Geo = new THREE.SphereGeometry(1.5, 32, 32);
+    // Add a grid for a more professional cybersecurity look
+    const gridHelper = new THREE.GridHelper(30, 30, 0x00a8ff, 0x00a8ff);
+    gridHelper.material.transparent = true;
+    gridHelper.material.opacity = 0.1;
+    gridHelper.position.y = -7;
+    scene.add(gridHelper);
+    
+    // Add spheres with more subtle effects
+    const sphere1Geo = new THREE.SphereGeometry(1.2, 32, 32);
     const sphere1Mat = new THREE.MeshBasicMaterial({
-      color: 0x0c8fff,
+      color: 0x00a8ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.3
+      opacity: 0.15
     });
     const sphere1 = new THREE.Mesh(sphere1Geo, sphere1Mat);
-    sphere1.position.set(-5, 2, -10);
+    sphere1.position.set(-6, 2, -10);
     scene.add(sphere1);
     
-    const sphere2Geo = new THREE.SphereGeometry(1, 32, 32);
+    const sphere2Geo = new THREE.SphereGeometry(0.8, 32, 32);
     const sphere2Mat = new THREE.MeshBasicMaterial({
-      color: 0x9b30ff,
+      color: 0x00a8ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.3
+      opacity: 0.15
     });
     const sphere2 = new THREE.Mesh(sphere2Geo, sphere2Mat);
     sphere2.position.set(5, -2, -8);
@@ -69,7 +79,7 @@ const HeroCanvas = () => {
     // Position camera
     camera.position.z = 5;
     
-    // Mouse movement effect
+    // Mouse movement effect with reduced sensitivity for subtlety
     let mouseX = 0;
     let mouseY = 0;
     
@@ -97,20 +107,20 @@ const HeroCanvas = () => {
     const animate = () => {
       requestAnimationFrame(animate);
       
-      // Rotate particles
-      particlesMesh.rotation.x += 0.0005;
-      particlesMesh.rotation.y += 0.0005;
+      // Rotate particles with slower, more subtle movement
+      particlesMesh.rotation.x += 0.0002;
+      particlesMesh.rotation.y += 0.0002;
       
       // Rotate spheres
-      sphere1.rotation.x += 0.002;
-      sphere1.rotation.y += 0.003;
+      sphere1.rotation.x += 0.001;
+      sphere1.rotation.y += 0.0015;
       
-      sphere2.rotation.x += 0.003;
-      sphere2.rotation.y += 0.002;
+      sphere2.rotation.x += 0.0015;
+      sphere2.rotation.y += 0.001;
       
-      // Mouse effect
-      particlesMesh.rotation.x += mouseY * 0.0005;
-      particlesMesh.rotation.y += mouseX * 0.0005;
+      // Mouse effect with reduced sensitivity
+      particlesMesh.rotation.x += mouseY * 0.0002;
+      particlesMesh.rotation.y += mouseX * 0.0002;
       
       renderer.render(scene, camera);
     };
