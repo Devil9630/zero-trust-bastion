@@ -11,8 +11,11 @@ import {
   Eye, 
   ArrowRight,
   CheckCircle,
-  Globe
+  Globe,
+  Terminal,
+  CircuitBoard
 } from 'lucide-react';
+import HeroCanvas from '../components/HeroCanvas';
 
 const Index = () => {
   const [animateStats, setAnimateStats] = useState(false);
@@ -37,24 +40,24 @@ const Index = () => {
       description: "Empower your team with cutting-edge cybersecurity skills and knowledge."
     },
     {
-      icon: <Eye className="w-12 h-12 text-cyber-teal mb-4" />,
+      icon: <Terminal className="w-12 h-12 text-cyber-teal mb-4" />,
+      title: "DevOps Coaching",
+      description: "Learn DevOps practices, CI/CD pipelines, and infrastructure as code from industry experts."
+    },
+    {
+      icon: <Eye className="w-12 h-12 text-cyber-blue mb-4" />,
       title: "Dark Web Monitoring",
       description: "Stay ahead of threats with continuous surveillance of the dark web for your credentials."
     },
     {
-      icon: <Database className="w-12 h-12 text-cyber-blue mb-4" />,
+      icon: <Database className="w-12 h-12 text-cyber-purple mb-4" />,
       title: "SOC Setup",
       description: "Establish a state-of-the-art Security Operations Center tailored to your needs."
     },
     {
-      icon: <Code className="w-12 h-12 text-cyber-purple mb-4" />,
-      title: "Red/Blue Teaming",
-      description: "Simulate real-world attacks and defense scenarios to strengthen your security posture."
-    },
-    {
-      icon: <Globe className="w-12 h-12 text-cyber-teal mb-4" />,
-      title: "Compliance Consulting",
-      description: "Navigate complex regulatory requirements with our expert guidance on ISO 27001, GDPR, and more."
+      icon: <CircuitBoard className="w-12 h-12 text-cyber-teal mb-4" />,
+      title: "Cloud Security",
+      description: "Secure your cloud infrastructure with our specialized security solutions and configurations."
     }
   ];
 
@@ -87,11 +90,18 @@ const Index = () => {
     <>
       {/* Hero Section */}
       <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-        {/* Background pattern */}
+        {/* 3D Background */}
+        <HeroCanvas />
+        
+        {/* Background pattern with cybersecurity-themed overlay */}
         <div 
-          className="absolute inset-0 z-0" 
+          className="absolute inset-0 z-0 opacity-20" 
           style={{ 
-            backgroundImage: 'linear-gradient(135deg, rgba(0, 168, 255, 0.05) 0%, rgba(155, 48, 255, 0.05) 100%), url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Cpath fill=\'none\' stroke=\'rgba(0, 168, 255, 0.15)\' stroke-width=\'1\' d=\'M10,10 L90,10 M10,25 L90,25 M10,40 L90,40 M10,55 L90,55 M10,70 L90,70 M10,85 L90,85 M25,10 L25,90 M40,10 L40,90 M55,10 L55,90 M70,10 L70,90 M85,10 L85,90\'/%3E%3C/svg%3E")' 
+            backgroundBlendMode: 'overlay',
+            backgroundImage: `
+              url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a8ff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+              url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239b30ff' fill-opacity='0.15' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")
+            `
           }}
         ></div>
         
@@ -125,13 +135,13 @@ const Index = () => {
                     System Status
                   </div>
                   <p className="text-green-400">
-                    {"> "}Threat monitoring active<span className="animate-pulse">_</span>
+                    {">"} Threat monitoring active<span className="animate-pulse">_</span>
                   </p>
                   <p className="text-cyber-blue">
-                    {"> "}Protection level: Maximum
+                    {">"} Protection level: Maximum
                   </p>
                   <p className="text-cyber-purple">
-                    {"> "}Zero Trust: Engaged
+                    {">"} Zero Trust: Engaged
                   </p>
                 </div>
               </div>
@@ -139,7 +149,7 @@ const Index = () => {
             
             <div className="relative">
               <div className="cyber-card overflow-hidden h-full flex items-center justify-center p-0 neon-border">
-                <div className="absolute inset-0 z-0 bg-cyber-gradient"></div>
+                <div className="absolute inset-0 z-0 bg-cyber-gradient opacity-40"></div>
                 <div className="relative z-10 p-8">
                   <Server className="w-32 h-32 mx-auto text-cyber-blue mb-6" />
                   <h2 className="text-2xl font-bold text-center mb-2 text-cyber-blue">
@@ -189,14 +199,14 @@ const Index = () => {
               Our <span className="text-cyber-blue">Services</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Comprehensive cybersecurity solutions tailored to protect your business
-              from ever-evolving digital threats.
+              Comprehensive cybersecurity solutions and DevOps coaching 
+              tailored to protect your business from ever-evolving digital threats.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="cyber-card group">
+              <div key={index} className="cyber-card group hover:translate-y-[-5px] transition-transform duration-300">
                 {service.icon}
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-gray-300 mb-4">{service.description}</p>
@@ -259,9 +269,9 @@ const Index = () => {
               </p>
               <div className="terminal-box">
                 <div className="terminal-heading text-cyber-teal">Mission Status</div>
-                <p className="text-cyber-teal">{"> "}Training the next generation of security experts</p>
-                <p className="text-cyber-teal">{"> "}Protecting critical infrastructure</p>
-                <p className="text-cyber-teal">{"> "}Advancing cybersecurity practices<span className="animate-pulse">_</span></p>
+                <p className="text-cyber-teal">{">"} Training the next generation of security experts</p>
+                <p className="text-cyber-teal">{">"} Protecting critical infrastructure</p>
+                <p className="text-cyber-teal">{">"} Advancing cybersecurity practices<span className="animate-pulse">_</span></p>
               </div>
             </div>
           </div>
@@ -284,7 +294,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="cyber-card">
+              <div key={index} className="cyber-card hover:translate-y-[-5px] transition-transform duration-300">
                 <p className="text-gray-300 italic mb-6">"{testimonial.quote}"</p>
                 <div>
                   <p className="font-medium text-white">{testimonial.author}</p>
