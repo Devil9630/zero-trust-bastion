@@ -55,12 +55,15 @@ const Navbar = () => {
             className="flex items-center gap-2"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Shield className="h-8 w-8 text-cyber-blue animate-pulse-glow" />
+            <Shield className="h-8 w-8 text-cyber-blue" />
             <div>
-              <span className="text-2xl font-bold neon-text tracking-wider">
-                CYBER
+              <span className="text-2xl font-bold text-cyber-blue tracking-wider">
+                ZERO
               </span>
-              <span className="text-2xl font-bold text-white">SHIELD</span>
+              <span className="text-2xl font-bold text-white">TRUST</span>
+              <span className="text-2xl font-bold text-cyber-blue tracking-wider">
+                BASTION
+              </span>
             </div>
           </Link>
 
@@ -72,7 +75,7 @@ const Navbar = () => {
                 to={item.path}
                 className={`text-sm uppercase tracking-wider transition-all duration-300 ${
                   isActive(item.path)
-                    ? 'neon-text font-medium'
+                    ? 'text-cyber-blue font-medium'
                     : 'text-gray-300 hover:text-cyber-blue'
                 }`}
               >
@@ -121,7 +124,7 @@ const Navbar = () => {
               to={item.path}
               className={`text-base py-2 border-b border-cyber-dark ${
                 isActive(item.path)
-                  ? 'neon-text font-medium'
+                  ? 'text-cyber-blue font-medium'
                   : 'text-gray-300'
               }`}
               onClick={toggleMenu}

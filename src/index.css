@@ -67,38 +67,32 @@
 @layer components {
   .neon-text {
     @apply text-cyber-blue relative;
-    text-shadow: 0 0 5px theme('colors.cyber.blue-glow'), 
-                 0 0 10px theme('colors.cyber.blue-glow');
+    text-shadow: 0 0 2px theme('colors.cyber.blue-glow');
   }
 
   .neon-text-purple {
     @apply text-cyber-purple relative;
-    text-shadow: 0 0 5px theme('colors.cyber.purple-glow'), 
-                 0 0 10px theme('colors.cyber.purple-glow');
+    text-shadow: 0 0 2px theme('colors.cyber.purple-glow');
   }
 
   .neon-text-teal {
     @apply text-cyber-teal relative;
-    text-shadow: 0 0 5px theme('colors.cyber.teal-glow'), 
-                 0 0 10px theme('colors.cyber.teal-glow');
+    text-shadow: 0 0 2px theme('colors.cyber.teal-glow');
   }
 
   .neon-border {
     @apply border border-cyber-blue relative;
-    box-shadow: 0 0 5px theme('colors.cyber.blue-glow'), 
-                inset 0 0 5px theme('colors.cyber.blue-glow');
+    box-shadow: 0 0 3px theme('colors.cyber.blue-glow');
   }
 
   .neon-border-purple {
     @apply border border-cyber-purple relative;
-    box-shadow: 0 0 5px theme('colors.cyber.purple-glow'), 
-                inset 0 0 5px theme('colors.cyber.purple-glow');
+    box-shadow: 0 0 3px theme('colors.cyber.purple-glow');
   }
 
   .neon-border-teal {
     @apply border border-cyber-teal relative;
-    box-shadow: 0 0 5px theme('colors.cyber.teal-glow'), 
-                inset 0 0 5px theme('colors.cyber.teal-glow');
+    box-shadow: 0 0 3px theme('colors.cyber.teal-glow');
   }
 
   .cyber-card {
@@ -117,41 +111,32 @@
 
   .cyber-button {
     @apply bg-cyber-dark/50 text-cyber-blue font-medium relative py-2 px-6 rounded-sm border border-cyber-blue/50 transition-all duration-300 overflow-hidden;
-    text-shadow: 0 0 5px theme('colors.cyber.blue-glow');
-    box-shadow: 0 0 5px theme('colors.cyber.blue-glow'), 
-                inset 0 0 2px theme('colors.cyber.blue-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.blue-glow');
   }
 
   .cyber-button:hover {
     @apply bg-cyber-blue/10 border-cyber-blue;
-    box-shadow: 0 0 10px theme('colors.cyber.blue-glow'), 
-                inset 0 0 2px theme('colors.cyber.blue-glow');
+    box-shadow: 0 0 4px theme('colors.cyber.blue-glow');
   }
 
   .cyber-button-purple {
     @apply bg-cyber-dark/50 text-cyber-purple font-medium relative py-2 px-6 rounded-sm border border-cyber-purple/50 transition-all duration-300 overflow-hidden;
-    text-shadow: 0 0 5px theme('colors.cyber.purple-glow');
-    box-shadow: 0 0 5px theme('colors.cyber.purple-glow'), 
-                inset 0 0 2px theme('colors.cyber.purple-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.purple-glow');
   }
 
   .cyber-button-purple:hover {
     @apply bg-cyber-purple/10 border-cyber-purple;
-    box-shadow: 0 0 10px theme('colors.cyber.purple-glow'), 
-                inset 0 0 2px theme('colors.cyber.purple-glow');
+    box-shadow: 0 0 4px theme('colors.cyber.purple-glow');
   }
 
   .cyber-button-teal {
     @apply bg-cyber-dark/50 text-cyber-teal font-medium relative py-2 px-6 rounded-sm border border-cyber-teal/50 transition-all duration-300 overflow-hidden;
-    text-shadow: 0 0 5px theme('colors.cyber.teal-glow');
-    box-shadow: 0 0 5px theme('colors.cyber.teal-glow'), 
-                inset 0 0 2px theme('colors.cyber.teal-glow');
+    box-shadow: 0 0 2px theme('colors.cyber.teal-glow');
   }
 
   .cyber-button-teal:hover {
     @apply bg-cyber-teal/10 border-cyber-teal;
-    box-shadow: 0 0 10px theme('colors.cyber.teal-glow'), 
-                inset 0 0 2px theme('colors.cyber.teal-glow');
+    box-shadow: 0 0 4px theme('colors.cyber.teal-glow');
   }
 
   .terminal-box {
@@ -164,7 +149,7 @@
 
   .terminal-heading::before {
     content: '>';
-    @apply text-cyber-blue animate-pulse-glow;
+    @apply text-cyber-blue;
   }
 
   .glitch-wrapper {

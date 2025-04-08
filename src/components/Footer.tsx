@@ -25,10 +25,10 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-6">
               <Shield className="h-6 w-6 text-cyber-blue" />
               <div>
-                <span className="text-xl font-bold neon-text tracking-wider">
-                  CYBER
+                <span className="text-xl font-bold text-cyber-blue tracking-wider">
+                  ZERO TRUST
                 </span>
-                <span className="text-xl font-bold text-white">SHIELD</span>
+                <span className="text-xl font-bold text-white">BASTION</span>
               </div>
             </div>
             <p className="text-gray-300 mb-4">
@@ -137,7 +137,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-cyber-blue" />
-                <span className="text-gray-300">contact@cybershield.com</span>
+                <span className="text-gray-300">contact@zerotrustbastion.com</span>
               </li>
             </ul>
           </div>
@@ -145,7 +145,7 @@ const Footer = () => {
 
         <div className="border-t border-cyber-blue/20 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} CyberShield. All rights reserved.
+            &copy; {new Date().getFullYear()} Zero Trust Bastion. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy" className="text-gray-400 text-sm hover:text-cyber-blue transition-colors">

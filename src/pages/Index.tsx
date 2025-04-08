@@ -67,7 +67,7 @@ const Index = () => {
 
   const testimonials = [
     {
-      quote: "CyberShield transformed our security posture. Their team's expertise and dedication is unmatched in the industry.",
+      quote: "Zero Trust Bastion transformed our security posture. Their team's expertise and dedication is unmatched in the industry.",
       author: "Sarah Johnson",
       title: "CTO, TechCorp Solutions"
     },
@@ -103,7 +103,7 @@ const Index = () => {
                   <span className="glitch-text" data-text="Guardians">Guardians</span>
                 </span>
                 {" "}of the{" "}
-                <span className="neon-text">Digital World</span>
+                <span className="text-cyber-blue">Digital World</span>
               </h1>
               <p className="text-lg text-gray-300 max-w-xl">
                 Professional cybersecurity services and training led by experts. 
@@ -131,7 +131,7 @@ const Index = () => {
                     {"> "}Protection level: Maximum
                   </p>
                   <p className="text-cyber-purple">
-                    {"> "}Cybershield: Engaged
+                    {"> "}Zero Trust: Engaged
                   </p>
                 </div>
               </div>
@@ -141,8 +141,8 @@ const Index = () => {
               <div className="cyber-card overflow-hidden h-full flex items-center justify-center p-0 neon-border">
                 <div className="absolute inset-0 z-0 bg-cyber-gradient"></div>
                 <div className="relative z-10 p-8">
-                  <Server className="w-32 h-32 mx-auto text-cyber-blue animate-pulse-glow mb-6" />
-                  <h2 className="text-2xl font-bold text-center mb-2 neon-text">
+                  <Server className="w-32 h-32 mx-auto text-cyber-blue mb-6" />
+                  <h2 className="text-2xl font-bold text-center mb-2 text-cyber-blue">
                     Advanced Protection
                   </h2>
                   <p className="text-center text-gray-300">
@@ -153,10 +153,10 @@ const Index = () => {
               
               {/* Floating elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 cyber-card neon-border-purple flex items-center justify-center">
-                <Lock className="w-10 h-10 text-cyber-purple animate-pulse-glow" />
+                <Lock className="w-10 h-10 text-cyber-purple" />
               </div>
               <div className="absolute -bottom-4 -left-4 w-24 h-24 cyber-card neon-border-teal flex items-center justify-center">
-                <Code className="w-10 h-10 text-cyber-teal animate-pulse-glow" />
+                <Code className="w-10 h-10 text-cyber-teal" />
               </div>
             </div>
           </div>
@@ -169,7 +169,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat, index) => (
               <div key={index} className="cyber-card">
-                <h3 className={`text-3xl font-bold mb-2 ${stat.color} animate-pulse-glow`}>
+                <h3 className={`text-3xl font-bold mb-2 ${stat.color}`}>
                   {animateStats ? stat.value : "0+"}
                 </h3>
                 <p className="text-gray-300">{stat.label}</p>
@@ -186,7 +186,7 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our <span className="neon-text">Services</span>
+              Our <span className="text-cyber-blue">Services</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
               Comprehensive cybersecurity solutions tailored to protect your business
@@ -221,11 +221,11 @@ const Index = () => {
             <div>
               <div className="cyber-card neon-border-purple h-full">
                 <h2 className="text-3xl font-bold mb-4">
-                  Built by <span className="neon-text-purple">Experts</span>. 
-                  Trusted by <span className="neon-text-purple">Enterprises</span>.
+                  Built by <span className="text-cyber-purple">Experts</span>. 
+                  Trusted by <span className="text-cyber-purple">Enterprises</span>.
                 </h2>
                 <p className="text-gray-300 mb-6">
-                  Founded by Mehul Dubey and Chandresh Kumar Karn, CyberShield combines decades of 
+                  Founded by Mehul Dubey and Chandresh Kumar Karn, Zero Trust Bastion combines decades of 
                   experience in cybersecurity to deliver best-in-class solutions.
                 </p>
                 <div className="mb-6">
@@ -249,7 +249,7 @@ const Index = () => {
             </div>
             
             <div className="cyber-card neon-border-teal">
-              <h2 className="text-2xl font-bold mb-4 neon-text-teal">
+              <h2 className="text-2xl font-bold mb-4 text-cyber-teal">
                 Empowering Minds, Securing Futures
               </h2>
               <p className="text-gray-300 mb-6">
@@ -275,7 +275,7 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Client <span className="neon-text">Testimonials</span>
+              Client <span className="text-cyber-blue">Testimonials</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
               See what our clients have to say about our cybersecurity services and training.
