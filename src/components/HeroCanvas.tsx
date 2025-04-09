@@ -5,6 +5,7 @@ import * as THREE from 'three';
 const HeroCanvas = () => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [hasWebGL, setHasWebGL] = useState(true);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   
   useEffect(() => {
     if (!mountRef.current) return;
@@ -100,23 +101,94 @@ const HeroCanvas = () => {
       // Position camera
       camera.position.z = 5;
       
-      // Mouse movement effect with simplified tracking
+      // Enhanced mouse movement effect
       let mouseX = 0;
       let mouseY = 0;
-      let isMouseMoving = false;
+      let lastMousePosition = { x: 0, y: 0 };
+      let targetParticleRotationX = 0;
+      let targetParticleRotationY = 0;
+      let isMouseActive = false;
+      const interactiveParticles: THREE.Vector3[] = [];
       
+      // Create interactive particles that will follow the mouse
+      for (let i = 0; i < 10; i++) {
+        const position = new THREE.Vector3(
+          (Math.random() - 0.5) * 20,
+          (Math.random() - 0.5) * 12,
+          (Math.random() - 0.5) * 8
+        );
+        interactiveParticles.push(position);
+      }
+      
+      // Create a raycaster for mouse interaction
+      const raycaster = new THREE.Raycaster();
+      const mouse = new THREE.Vector2();
+      
+      // Improved mouse move handler with smoother transitions
       const handleMouseMove = (event: MouseEvent) => {
-        mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-        mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-        isMouseMoving = true;
+        // Normalize mouse position
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
         
-        // Auto-reset mouse movement flag after delay to prevent stuttering
-        setTimeout(() => {
-          isMouseMoving = false;
-        }, 100);
+        // Set mouse position for cursor effects
+        mouseX = mouse.x;
+        mouseY = mouse.y;
+        
+        // Track velocity for momentum effect
+        const velocity = {
+          x: event.clientX - lastMousePosition.x,
+          y: event.clientY - lastMousePosition.y
+        };
+        
+        lastMousePosition = {
+          x: event.clientX,
+          y: event.clientY
+        };
+        
+        // Set target rotations with momentum
+        targetParticleRotationX += velocity.y * 0.0002;
+        targetParticleRotationY += velocity.x * 0.0002;
+        
+        // Update cursor position for potential UI effects
+        setCursorPosition({ x: event.clientX, y: event.clientY });
+        
+        isMouseActive = true;
+        
+        // Cast ray for potential interactions
+        raycaster.setFromCamera(mouse, camera);
       };
       
+      const handleMouseEnter = () => {
+        isMouseActive = true;
+      };
+      
+      const handleMouseLeave = () => {
+        isMouseActive = false;
+      };
+      
+      // Add mouse event listeners
       window.addEventListener('mousemove', handleMouseMove);
+      mountRef.current.addEventListener('mouseenter', handleMouseEnter);
+      mountRef.current.addEventListener('mouseleave', handleMouseLeave);
+      
+      // Add touch support for mobile devices
+      const handleTouchMove = (event: TouchEvent) => {
+        if (event.touches.length > 0) {
+          const touch = event.touches[0];
+          mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+          
+          mouseX = mouse.x;
+          mouseY = mouse.y;
+          
+          isMouseActive = true;
+          
+          setCursorPosition({ x: touch.clientX, y: touch.clientY });
+          raycaster.setFromCamera(mouse, camera);
+        }
+      };
+      
+      window.addEventListener('touchmove', handleTouchMove);
       
       // Handle window resize with throttling
       let resizeTimeout: number | null = null;
@@ -139,25 +211,41 @@ const HeroCanvas = () => {
       
       // Animation loop with performance monitoring
       let frameId: number;
-      const animate = () => {
+      let lastTime = 0;
+      const animate = (time: number) => {
         frameId = requestAnimationFrame(animate);
         
         try {
-          // Rotate particles more gently
-          particlesMesh.rotation.x += 0.0001;
-          particlesMesh.rotation.y += 0.0001;
+          // Calculate delta time for smooth animations
+          const delta = (time - lastTime) * 0.001;
+          lastTime = time;
           
-          // Rotate spheres
-          sphere1.rotation.x += 0.0005;
-          sphere1.rotation.y += 0.0008;
+          // Smooth rotation transitions
+          if (isMouseActive) {
+            particlesMesh.rotation.x += (targetParticleRotationX - particlesMesh.rotation.x) * 0.05;
+            particlesMesh.rotation.y += (targetParticleRotationY - particlesMesh.rotation.y) * 0.05;
+            
+            // Rotate based on mouse position with damping
+            sphere1.rotation.x += (mouseY * 0.5 - sphere1.rotation.x) * 0.02;
+            sphere1.rotation.y += (mouseX * 0.5 - sphere1.rotation.y) * 0.02;
+            
+            sphere2.rotation.x += (mouseY * 0.3 - sphere2.rotation.x) * 0.03;
+            sphere2.rotation.y += (mouseX * 0.3 - sphere2.rotation.y) * 0.03;
+          } else {
+            // Auto rotation when mouse is inactive
+            particlesMesh.rotation.x += 0.0005;
+            particlesMesh.rotation.y += 0.0005;
+            
+            sphere1.rotation.x += 0.0005;
+            sphere1.rotation.y += 0.0008;
+            
+            sphere2.rotation.x += 0.0008;
+            sphere2.rotation.y += 0.0005;
+          }
           
-          sphere2.rotation.x += 0.0008;
-          sphere2.rotation.y += 0.0005;
-          
-          // Mouse effect only when mouse is actually moving
-          if (isMouseMoving) {
-            particlesMesh.rotation.x += mouseY * 0.0001;
-            particlesMesh.rotation.y += mouseX * 0.0001;
+          // Update grid to create a subtle wave effect
+          if (gridHelper.material instanceof THREE.Material) {
+            gridHelper.position.y = -5 + Math.sin(time * 0.0005) * 0.2;
           }
           
           renderer.render(scene, camera);
@@ -168,13 +256,16 @@ const HeroCanvas = () => {
         }
       };
       
-      animate();
+      animate(0);
       
       // Cleanup
       return () => {
         console.log('Cleaning up Three.js resources');
         cancelAnimationFrame(frameId);
         window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('touchmove', handleTouchMove);
+        mountRef.current?.removeEventListener('mouseenter', handleMouseEnter);
+        mountRef.current?.removeEventListener('mouseleave', handleMouseLeave);
         window.removeEventListener('resize', handleResize);
         
         if (mountRef.current && renderer) {
@@ -210,7 +301,22 @@ const HeroCanvas = () => {
     );
   }
   
-  return <div ref={mountRef} className="absolute inset-0 z-0" />;
+  // Custom cursor effect (optional)
+  return (
+    <>
+      <div ref={mountRef} className="absolute inset-0 z-0" />
+      {/* Add a subtle cursor effect */}
+      <div 
+        className="fixed w-4 h-4 rounded-full bg-cyber-blue opacity-50 pointer-events-none mix-blend-screen"
+        style={{
+          transform: `translate(${cursorPosition.x - 8}px, ${cursorPosition.y - 8}px)`,
+          transition: 'transform 0.1s ease-out',
+          boxShadow: '0 0 15px 5px rgba(0, 168, 255, 0.3)',
+          zIndex: 9999
+        }}
+      />
+    </>
+  );
 };
 
 export default HeroCanvas;
